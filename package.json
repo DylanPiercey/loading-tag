@@ -1,0 +1,57 @@
+{
+  "name": "loading-tag",
+  "description": "Maybefill for a `<loading>` tag which allows for client reordering of async html.",
+  "version": "0.0.1",
+  "author": "Dylan Piercey <pierceydylan@gmail.com>",
+  "bugs": "https://github.com/DylanPiercey/loading-tag/issues",
+  "devDependencies": {
+    "@types/es6-promise": "0.0.33",
+    "@types/mocha": "^2.2.43",
+    "@types/node": "^8.0.46",
+    "google-closure-compiler-js": "^20170910.0.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
+    "mocha": "^4.0.1",
+    "mz": "^2.7.0",
+    "nyc": "^11.3.0",
+    "prettier": "^1.7.4",
+    "puppeteer": "^0.13.0",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.8.0",
+    "tslint-config-prettier": "^1.6.0",
+    "typescript": "^2.5.3"
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/DylanPiercey/loading-tag",
+  "keywords": [
+    "loading",
+    "isomorphic",
+    "tag",
+    "async",
+    "flush",
+    "universal"
+  ],
+  "license": "MIT",
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "tslint -t codeFrame -c tslint.json",
+      "git add"
+    ]
+  },
+  "main": "dist/index.min.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DylanPiercey/loading-tag"
+  },
+  "scripts": {
+    "build": "tsc && google-closure-compiler-js --compilationLevel ADVANCED ./dist/index.js > ./dist/index.min.js",
+    "format-all": "prettier ./{src,test}/**/*.ts --write",
+    "mocha": "mocha -r ts-node/register ./test/**/*.test.ts",
+    "precommit": "lint-staged && npm test",
+    "test": "npm run mocha"
+  },
+  "types": "dist/index.d.ts"
+}
