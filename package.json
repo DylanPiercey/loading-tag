@@ -51,7 +51,7 @@
     "format-all": "prettier ./{src,test}/**/*.ts --write",
     "mocha": "mocha -r ts-node/register ./test/**/*.test.ts",
     "precommit": "lint-staged && npm test",
-    "test": "npm run mocha"
+    "test": "npm run build && npm run mocha"
   },
   "types": "dist/index.d.ts"
 }
